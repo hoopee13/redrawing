@@ -12,7 +12,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* 모든 요소에 어절 단위 줄바꿈(keep-all) 강제 적용 */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            word-break: keep-all; 
+            overflow-wrap: break-word; 
+        }
         
         :root {
             --bg-dark: #030508;
@@ -30,8 +37,6 @@
             color: var(--text-main);
             background-color: var(--bg-dark);
             line-height: 1.6;
-            word-break: keep-all; /* 추가: 한글 어절 단위 자연스러운 줄바꿈 */
-            overflow-wrap: break-word; /* 추가: 긴 단어 영역 이탈 방지 */
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             background-image: 
@@ -94,6 +99,7 @@
             letter-spacing: 0.05em; text-transform: uppercase; 
             transition: all 0.3s; cursor: pointer; 
             position: relative;
+            white-space: nowrap; /* 메뉴 글자가 두 줄로 쪼개지는 현상 방지 */
         }
         /* 내비게이션 링크 밑줄 호버 애니메이션 */
         .nav-links a::after {
@@ -114,6 +120,7 @@
             letter-spacing: 0.05em; cursor: pointer;
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.4s;
+            white-space: nowrap; /* 버튼 텍스트 깨짐 방지 */
         }
         .nav-cta:hover { 
             background: var(--accent-blue); 
